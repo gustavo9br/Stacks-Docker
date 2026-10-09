@@ -1,0 +1,9 @@
+# Segredos e dados locais — nunca subir
+.env
+*.env
+!*.env.example
+*.sql
+*.tar.gz
+*.bak
+backups/
+secrets/
