@@ -72,6 +72,126 @@
           "preset": false
         }
       ]
+    },
+    {
+      "type": 2,
+      "title": "VPS | WAHA",
+      "name": "waha-vps",
+      "description": "WAHA (WhatsApp HTTP API) — API REST para WhatsApp, com dashboard e Swagger. Engine WEBJS (Chromium).",
+      "logo": "https://waha.devlike.pro/images/logo.png",
+      "website": "https://waha.devlike.pro",
+      "platform": "linux",
+      "note": "Versão para VPS: Traefik com HTTPS direto (entrypoint websecure + Let's Encrypt, certresolver 'le'). Antes do deploy: 1) a rede overlay 'externa' precisa existir; 2) crie o volume 'waha_sessions' em Volumes no Portainer; 3) aponte o DNS do subdomínio para o IP da VPS. Os valores padrão de API Key e senha são só exemplos — troque-os. A engine WEBJS roda Chromium e usa até 3 GB de RAM.",
+      "categories": [
+        "VPS",
+        "WhatsApp"
+      ],
+      "repository": {
+        "url": "https://github.com/gustavo9br/Stacks-Docker",
+        "stackfile": "vps/waha/waha.yaml"
+      },
+      "env": [
+        {
+          "name": "SUBDOMAIN",
+          "label": "Subdomínio do WAHA",
+          "description": "O subdomínio que será usado para acessar a API e o dashboard do WAHA.",
+          "required": true,
+          "default": "waha",
+          "preset": false
+        },
+        {
+          "name": "DOMAIN",
+          "label": "Domínio principal do seu site",
+          "description": "Domínio principal do seu site.",
+          "required": true,
+          "default": "seudominio.com.br",
+          "preset": false
+        },
+        {
+          "name": "WAHA_API_KEY",
+          "label": "API Key do WAHA",
+          "description": "Chave usada no header X-Api-Key das requisições. O valor padrão é só um exemplo de tamanho (32 caracteres): troque por uma chave sua.",
+          "required": true,
+          "default": "ixep8ic6lt0n8y74nfu1kcglg1lxym3l",
+          "preset": false
+        },
+        {
+          "name": "WAHA_USERNAME",
+          "label": "Usuário do dashboard/swagger",
+          "description": "Usuário de login do dashboard e do Swagger.",
+          "required": true,
+          "default": "admin",
+          "preset": false
+        },
+        {
+          "name": "WAHA_PASSWORD",
+          "label": "Senha do dashboard/swagger",
+          "description": "Senha do dashboard e do Swagger. O valor padrão é só um exemplo de tamanho (32 caracteres): troque por uma senha sua.",
+          "required": true,
+          "default": "h3wbrqquzm7g0qdv5og0kbbtzlkd2adk",
+          "preset": false
+        }
+      ]
+    },
+    {
+      "type": 2,
+      "title": "Homelab | WAHA",
+      "name": "waha-homelab",
+      "description": "WAHA (WhatsApp HTTP API) — API REST para WhatsApp, com dashboard e Swagger. Engine WEBJS (Chromium).",
+      "logo": "https://waha.devlike.pro/images/logo.png",
+      "website": "https://waha.devlike.pro",
+      "platform": "linux",
+      "note": "Versão para homelab: Traefik só em HTTP (entrypoint web) — o HTTPS fica com o Cloudflare Tunnel (ou outro proxy) na frente. Antes do deploy: 1) a rede overlay 'externa' precisa existir; 2) crie o volume 'waha_sessions' em Volumes no Portainer; 3) no Cloudflare Tunnel, aponte o subdomínio para o Traefik (http). Os valores padrão de API Key e senha são só exemplos — troque-os. A engine WEBJS roda Chromium e usa até 3 GB de RAM.",
+      "categories": [
+        "Homelab",
+        "WhatsApp"
+      ],
+      "repository": {
+        "url": "https://github.com/gustavo9br/Stacks-Docker",
+        "stackfile": "homelab/waha/waha.yaml"
+      },
+      "env": [
+        {
+          "name": "SUBDOMAIN",
+          "label": "Subdomínio do WAHA",
+          "description": "O subdomínio que será usado para acessar a API e o dashboard do WAHA.",
+          "required": true,
+          "default": "waha",
+          "preset": false
+        },
+        {
+          "name": "DOMAIN",
+          "label": "Domínio principal do seu site",
+          "description": "Domínio principal do seu site.",
+          "required": true,
+          "default": "seudominio.com.br",
+          "preset": false
+        },
+        {
+          "name": "WAHA_API_KEY",
+          "label": "API Key do WAHA",
+          "description": "Chave usada no header X-Api-Key das requisições. O valor padrão é só um exemplo de tamanho (32 caracteres): troque por uma chave sua.",
+          "required": true,
+          "default": "ixep8ic6lt0n8y74nfu1kcglg1lxym3l",
+          "preset": false
+        },
+        {
+          "name": "WAHA_USERNAME",
+          "label": "Usuário do dashboard/swagger",
+          "description": "Usuário de login do dashboard e do Swagger.",
+          "required": true,
+          "default": "admin",
+          "preset": false
+        },
+        {
+          "name": "WAHA_PASSWORD",
+          "label": "Senha do dashboard/swagger",
+          "description": "Senha do dashboard e do Swagger. O valor padrão é só um exemplo de tamanho (32 caracteres): troque por uma senha sua.",
+          "required": true,
+          "default": "h3wbrqquzm7g0qdv5og0kbbtzlkd2adk",
+          "preset": false
+        }
+      ]
     }
   ]
 }
