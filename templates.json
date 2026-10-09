@@ -1,4 +1,77 @@
 {
   "version": "2",
-  "templates": []
+  "templates": [
+    {
+      "type": 2,
+      "title": "VPS | Dockhand",
+      "name": "dockhand-vps",
+      "description": "Dockhand é um painel moderno para gerenciar containers, imagens, volumes e stacks Docker.",
+      "note": "Versão para VPS: Traefik com HTTPS direto (entrypoint websecure + Let's Encrypt, certresolver 'le'). Antes do deploy: 1) a rede overlay 'externa' precisa existir; 2) crie o volume 'dockhand_data' em Volumes no Portainer; 3) aponte o DNS do subdomínio para o IP da VPS.",
+      "logo": "https://dockhand.pro/images/dockhand-logo.svg",
+      "website": "https://dockhand.pro",
+      "categories": [
+        "VPS",
+        "Gerenciamento"
+      ],
+      "platform": "linux",
+      "repository": {
+        "url": "https://github.com/gustavo9br/Stacks-Docker",
+        "stackfile": "vps/dockhand/dockhand.yaml"
+      },
+      "env": [
+        {
+          "name": "SUBDOMAIN",
+          "label": "Subdomínio do Dockhand",
+          "description": "O subdomínio que será usado para acessar o Dockhand.",
+          "required": true,
+          "default": "dockhand",
+          "preset": false
+        },
+        {
+          "name": "DOMAIN",
+          "label": "Domínio principal do seu site",
+          "description": "Domínio principal do seu site.",
+          "required": true,
+          "default": "seudominio.com.br",
+          "preset": false
+        }
+      ]
+    },
+    {
+      "type": 2,
+      "title": "Homelab | Dockhand",
+      "name": "dockhand-homelab",
+      "description": "Dockhand é um painel moderno para gerenciar containers, imagens, volumes e stacks Docker.",
+      "note": "Versão para homelab: Traefik só em HTTP (entrypoint web) — o HTTPS fica com o Cloudflare Tunnel (ou outro proxy) na frente. Antes do deploy: 1) a rede overlay 'externa' precisa existir; 2) crie o volume 'dockhand_data' em Volumes no Portainer; 3) no Cloudflare Tunnel, aponte o subdomínio para o Traefik (http).",
+      "logo": "https://dockhand.pro/images/dockhand-logo.svg",
+      "website": "https://dockhand.pro",
+      "categories": [
+        "Homelab",
+        "Gerenciamento"
+      ],
+      "platform": "linux",
+      "repository": {
+        "url": "https://github.com/gustavo9br/Stacks-Docker",
+        "stackfile": "homelab/dockhand/dockhand.yaml"
+      },
+      "env": [
+        {
+          "name": "SUBDOMAIN",
+          "label": "Subdomínio do Dockhand",
+          "description": "O subdomínio que será usado para acessar o Dockhand.",
+          "required": true,
+          "default": "dockhand",
+          "preset": false
+        },
+        {
+          "name": "DOMAIN",
+          "label": "Domínio principal do seu site",
+          "description": "Domínio principal do seu site.",
+          "required": true,
+          "default": "seudominio.com.br",
+          "preset": false
+        }
+      ]
+    }
+  ]
 }
